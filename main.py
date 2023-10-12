@@ -50,7 +50,7 @@ def route(link_id: str):
             return redirect("https://www.ghink.net")
     link_id_converted = 0
     for i in range(len(link_id)):
-        link_id_converted += field_map[link_id[::-1][i]] * 56 ** i
+        link_id_converted += field_map[link_id[::-1][i]] * 62 ** i
 
     try:
         db.ping()
@@ -103,7 +103,7 @@ def add():
         link_id_random = ''.join(random.sample(tuple(field_map.keys()), 6))
         link_id_converted = 0
         for i in range(len(link_id_random)):
-            link_id_converted += field_map[link_id_random[::-1][i]] * 56 ** i
+            link_id_converted += field_map[link_id_random[::-1][i]] * 62 ** i
         # Get Cursor
         try:
             db.ping()
